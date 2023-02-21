@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Add Product</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Название</label>
+            <input type="text" name="name" class="form-control" id="name">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Цена</label>
+            <input type="number" name="price" class="form-control" id="price">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Картинка</label>
+            <input type="text" name="image" class="form-control" id="image">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Пример выбора по умолчанию" name="category">
+                {% for category in categories %}
+                    <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add product</button>
+    </form>
+{% endblock %}

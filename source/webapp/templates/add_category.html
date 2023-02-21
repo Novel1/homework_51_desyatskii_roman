@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+{% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Название</label>
+        <input type="text" name="name" class="form-control" id="name">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Add category</button>
+</form>
+{% endblock %}

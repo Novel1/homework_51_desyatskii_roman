@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    .image {
+        height: 240px;
+    }
+    </style>
+    <div class="card-group">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ product.image }}" class="image" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.category }}</p>
+                            <p class="card-text">{{ product.price }}</p>
+                            <a href="{% url 'product_view' product.pk %}"><p class="card-text">Подробнее...</p></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
